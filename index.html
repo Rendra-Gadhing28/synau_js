@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu</title>
+    <style>
+        li{
+            width: full;
+            background-color: seashell;
+            text-align: center;
+            padding:2em;
+        }
+    </style>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    <div class="w-[50vw] h-auto bg-blue-400 mx-auto mt-50 p-8 flex flex-col justify-center" id="utama">
+        <label class="font-bold">Tuliskan Listmu</label><br>
+        <input type="text" id="input" class="p-2 mt-2 br-15 outline rounded-md" placeholder="Tuliskan kegiatan mu" name="input" required>
+        <button type="submit" id="button" class="w-auto bg-green-400 mt-2 p-2 rounded-md">Tambah</button>
+
+        <div class="relative mt-8">
+            <ul id ="task" class="w-full flex flex-col justify-center items-center gap-4 bg-slate-600 p-8">
+           
+                
+            </ul>
+        </div>
+    </div>
+    
+
+    <script src="list.js"></script>
+</body>
+
+</html>

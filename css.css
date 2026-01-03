@@ -1,0 +1,18 @@
+.card{
+    width:100px;
+    height:100px;
+    transition:.500ms background-color,
+    .500ms width,
+    .500ms height;
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color:black;
+}
+
+.zoom{
+  width:150px;
+  height:150px;
+  background-color:black;
+
+}
+

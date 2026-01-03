@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coba ngeliat password</title>
+</head>
+<body>
+    <form action="">
+        <label for="pass">password</label>
+        <input name="pass"type="password" id="inp">
+        <input type="checkbox" id="cek">
+        <button id="kirim">Kirim</button>
+    </form>
+
+    <script>
+        
+        const input = document.getElementById("inp")
+        let isCek = document.getElementById("cek")
+        const btn = document.getElementById("kirim")
+        
+        btn.addEventListener('click', function() {
+            
+            nilai1 = input.value.trim()
+            alert(`anda mengatakan : ${nilai1}`)
+        })
+        isCek.addEventListener("change", () => {
+                input.type = isCek.checked? "text" : "password"
+            })
+    
+        
+    </script>
+</body>
+</html>
