@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form action="POST" method="post">
+        <h1>Login Form</h1>
+        <label for="username">username</label>
+        <input type="text" name="username" placeholder="masukan username mu..." required><br>
+        <label for="password">password</label>
+        <input type="password" placeholder="masukan password..." required><br>
+        <label for="gender">Pilih Gender</label>
+        <input type="radio" value="wanita">
+        <input type="radio" value="pria"> <br>
+        <label for="tech">Pilih bahasa pemrograman mu</label>
+        <select name="tech" id="tech" placeholder="pilih bahasa pemrograman mu..." required>
+            <option value="" default>Default</option>
+            <option value="nextjs">Next Js</option>
+            <option value="laravel">Laravel</option>
+            <option value="react">React</option>
+            <option value="Golang">Golang</option>
+        </select><br>
+        <button type="submit">Kirim</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>

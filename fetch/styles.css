@@ -1,0 +1,33 @@
+*{
+    font-family:sans,cursive;
+}
+body{
+      background: #050505;
+        color: #050505;
+}
+
+form{
+    width:50svw;
+    height: fit-content;
+    margin: 0 auto;
+    background:#d3d3d3;
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    justify-content:center;
+    align-content:center;
+}
+input{
+    border:none;
+    padding:8px;
+    margin-top:2px;
+    border-radius:8px;
+    
+}
+input:active, input:focus{
+    outline:2px solid #050505;
+}
+input:hover{
+    outline:2px solid #888888;
+}

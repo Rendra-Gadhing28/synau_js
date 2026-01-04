@@ -11,6 +11,7 @@
         <input name="pass"type="password" id="inp">
         <input type="checkbox" id="cek">
         <button id="kirim">Kirim</button>
+        <p id="text"></p>
     </form>
 
     <script>
@@ -18,11 +19,16 @@
         const input = document.getElementById("inp")
         let isCek = document.getElementById("cek")
         const btn = document.getElementById("kirim")
+        let p = document.querySelector("p")
         
         btn.addEventListener('click', function() {
-            
+            event.preventDefault()
             nilai1 = input.value.trim()
-            alert(`anda mengatakan : ${nilai1}`)
+            alert(`anda mengirim : ${nilai1}`)
+            js = JSON.stringify({
+                "value" : nilai1})
+            p = document.body.append(js)  
+    
         })
         isCek.addEventListener("change", () => {
                 input.type = isCek.checked? "text" : "password"
