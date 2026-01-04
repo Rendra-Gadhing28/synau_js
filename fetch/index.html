@@ -14,8 +14,9 @@
         <label for="password">password</label>
         <input type="password" placeholder="masukan password..." required><br>
         <label for="gender">Pilih Gender</label>
-        <input type="radio" value="wanita">
-        <input type="radio" value="pria"> <br>
+        <input name="gender"type="radio" value="wanita">Wanita
+        <input type="radio" name="gender" value="pria" max="1">Pria
+        <br>
         <label for="tech">Pilih bahasa pemrograman mu</label>
         <select name="tech" id="tech" placeholder="pilih bahasa pemrograman mu..." required>
             <option value="" default>Default</option>
@@ -24,8 +25,10 @@
             <option value="react">React</option>
             <option value="Golang">Golang</option>
         </select><br>
-        <button type="submit">Kirim</button>
-        <button type="reset">Reset</button>
+        <button type="submit" id="kirim">Kirim</button>
+        <button type="reset" id="reset">Reset</button>
     </form>
+
+    <script src="fetch.js"></script>
 </body>
 </html>
