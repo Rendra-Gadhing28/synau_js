@@ -23,11 +23,43 @@ input{
     padding:8px;
     margin-top:2px;
     border-radius:8px;
-    
 }
+h1{
+    animation-duration : 4s;
+    animation-name : warna-anim;
+    animation-iteration-count: infinite;
+}
+.gender{
+    display:flex;
+    align-self:start;
+    flex-direction:row;
+    gap:8px;
+    margin-bottom:8px;
+}
+
 input:active, input:focus{
     outline:2px solid #050505;
 }
 input:hover{
     outline:2px solid #888888;
+}
+button{
+    padding: 8px;
+    border-radius:2rem;
+    border:none;
+    display:block;
+    margin-top : 0.5rem;
+    transition: all 300ms ease-in-out 1ms;
+}
+button:hover{
+    box-shadow: 0 0 5px 3px;
+    padding:10px;
+}
+
+@keyframes warna-anim {
+    0%{color : #4452}
+    25%{color : #4fff}
+    50%{color : #5eee}
+    75%{color : #8eef}
+    100%{color : #eeff}
 }

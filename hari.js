@@ -12,7 +12,11 @@ const pjbl = [
         tugas : 'fullstack'
     }
 ]
-pjbl.map((values)=>{
-    console.log(values)
+pjbl.map((e)=>{
+    console.log(e)
+    const {nama} = e
+    console.log(nama)
+    const {tugas} = e
+    console.log(tugas)
 })
 

@@ -1,12 +1,10 @@
 <?php
-try {
-    $db = new PDO('pgsql:host=localhost;dbname=data', 'root', '');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+$db = new mysqli('localhost','root', '', 'nyoba');
+if($db->connect_errno){
+    die("Gagal gok");
 }
-
 $method = $_SERVER["REQUEST_METHOD"];
 if($method === "GET"){
-    $q = "SELECT * From";
+    $q = "SELECT * From user";
 }
+?>
