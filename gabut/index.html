@@ -33,6 +33,12 @@
         isCek.addEventListener("change", () => {
                 input.type = isCek.checked? "text" : "password"
             })
+
+        input.addEventListener('input', ()=>{
+            input.style.padding = "8px"
+            input.style.border = "none"
+            input.style.text = "underline"
+        })
     
         
     </script>

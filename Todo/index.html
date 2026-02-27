@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="to-do-list.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root{
+            /* ── CORE BLACKS ── */
+  --black-pure:       #000000;   /* Pure black */
+  --black-rich:       #0A0A0A;   /* Rich deep black */
+  --black-soft:       #0F0F0F;   /* Soft black (background base) */
+  --black-elevated:   #141414;   /* Slightly elevated surface */
+  --black-card:       #1A1A1A;   /* Card / panel background */
+  --black-surface:    #1F1F1F;   /* Surface layer */
+  --black-border:     #252525;   /* Subtle border */
+  --black-muted:      #2E2E2E;   /* Muted / divider */
+
+  /* ── CHARCOAL MID TONES ── */
+  --charcoal-deep:    #333333;
+  --charcoal-mid:     #3D3D3D;
+  --charcoal-soft:    #4A4A4A;
+  --charcoal-light:   #5C5C5C;
+
+  /* ── SOFT WHITE HIGHLIGHTS ── */
+  --white-pure:       #FFFFFF;   /* Pure white */
+  --white-soft:       #F8F8F8;   /* Soft white — primary text */
+  --white-muted:      #ECECEC;   /* Muted white — secondary text */
+  --white-dim:        #D4D4D4;   /* Dim white — placeholder / caption */
+  --white-faint:      #ABABAB;   /* Faint white — disabled / hint */
+  --white-ghost:      #6E6E6E;   /* Ghost white — very subtle text */
+
+  /* ── GLASS / OVERLAY ── */
+  --glass-white-5:    rgba(255, 255, 255, 0.05);
+  --glass-white-8:    rgba(255, 255, 255, 0.08);
+  --glass-white-12:   rgba(255, 255, 255, 0.12);
+  --glass-white-20:   rgba(255, 255, 255, 0.20);
+  --glass-black-40:   rgba(0, 0, 0, 0.40);
+  --glass-black-60:   rgba(0, 0, 0, 0.60);
+  --glass-black-80:   rgba(0, 0, 0, 0.80);
+
+  /* ── ACCENT — ELEGANT WHITE GLOW ── */
+  --accent-glow:      rgba(255, 255, 255, 0.15);
+  --accent-glow-soft: rgba(255, 255, 255, 0.06);
+  --accent-shine:     rgba(255, 255, 255, 0.90);
+
+  /* ── SEMANTIC ROLES ── */
+  --bg-base:          var(--black-soft);
+  --bg-elevated:      var(--black-elevated);
+  --bg-card:          var(--black-card);
+  --bg-surface:       var(--black-surface);
+
+  --border-subtle:    var(--black-border);
+  --border-mid:       var(--charcoal-deep);
+  --border-highlight: rgba(255, 255, 255, 0.10);
+
+  --text-primary:     var(--white-soft);
+  --text-secondary:   var(--white-muted);
+  --text-tertiary:    var(--white-dim);
+  --text-disabled:    var(--white-faint);
+  --text-ghost:       var(--white-ghost);
+
+  /* ── SHADOWS ── */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.6);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.7);
+  --shadow-lg:   0 10px 30px rgba(0,0,0,0.8);
+  --shadow-glow: 0 0 20px rgba(255,255,255,0.06);
+
+
+    --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+
+
+  /* ── GRADIENTS ── */
+  --gradient-bg:        linear-gradient(135deg, #0A0A0A 0%, #141414 100%);
+  --gradient-card:      linear-gradient(145deg, #1A1A1A 0%, #111111 100%);
+  --gradient-highlight: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 100%);
+  --gradient-shine:     linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+  --gradient-radial:    radial-gradient(ellipse at top, #1F1F1F 0%, #0A0A0A 70%);
+        }
+
+        *{
+            font-family: var(--font-sans);
+        }
+        body{
+            scroll-behavior: smooth;
+        }
+
+        #hasil{
+            background: line;
+        }
+
+        input,select{
+            z-index: 0;
+            cursor: pointer;
+            border: 1px solid var(--glass-black-40);
+        }
+
+        button{
+            background: var(--charcoal-deep);
+            color:var(--white-soft)
+        }
+
+        #list{
+          background: linear-gradient(135deg,var(--black-elevated), var(--black-muted));
+        }
+
+    </style>
+</head>
+<body class="bg-[var(--black-rich)]">
+    <header class="relative">
+        <nav class="w-full h-12 p-4 flex flex-row gap-4 bg-[var(--white-pure)] items-center justify-between font-[var(--font-sans)] ">
+            <picture class="flex ">
+                <img src="to-do-list.png" alt="ini gambar todo"
+                class="w-6 h-6">
+                 <span>Rendra</span>
+            </picture>    
+            <ul class="flex flex-row gap-4">
+                <li class=""><a href="#about">About</a></li>
+                <li><a href="#todo">Todo</a></li>
+                <li><a href="#list">List</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="relative mx-auto">
+        <section id="about"
+        class="bg-[var(--main-col)] py-8 px-4">
+            <div class="text-[var(--white-pure)] flex flex-col gap-4">
+                <h1 class="font-bold text-[var(--white-pure)] text-center text-xl mt-2  ">Welcome to Todo</h1>
+                <p class="text-sm px-4 py-2">bermula dari gabut dan ingi berkembang, melalui percobaan membuat todolist memanfaatkan html, css dan js saya akan membuat todolist sesutai kreasi saya untuk meningkatkan skill js. Saya Rendra Gadhing Pamungkas jurusan Rekayasa Perangkat Lunak dan Gim (PPLG) <a href="">SMKN 8 Semarang.</a></p>
+            </div>
+        </section>
+        <section id="todo" class="bg-[var(--white-soft)] py-6 px-8 pointer">
+            <h1 class="text-xl font-bold font-[var(--font-serif)] text-center">to-do-list</h1>
+            <div class="flex flex-col gap-2 py-2 px-4">
+                <label for="acara">Kegiatan</label>
+                <input type="text" id="kegiatan" class="h-8 py-4 px-2" name="acara" value="" placeholder="masukan keperluan mu...">
+                <label id="" for="tenggat">Batas Hari</label>
+                <input class="h-8 py-4 px-2" id="tenggat" type="date" name="tenggat" placeholder="pilih tenggat...">
+                <label for="kategori">Kategori acara</label>
+                <select class="py-4 px-2" name="kategori" id="kategori">
+                    <option value="">-- default --</option>
+                    <option value="pekerjaan">pekerjaan/job</option>
+                    <option value="sekolah">tugas sekolah</option>
+                    <option value="acara">acara / Kegiatan</option>
+                    <option value="janjian">janjian</option>
+                    <option value="ultangtahun">ulang tahun</option>
+                </select>
+                <button class="px-2 py-2 rounded-md  mt-4" id="send" type="submit">send</button>
+                <button class="px-2 py-2 rounded-md  " id="clear" type="reset">clear</button>
+            </div>
+        </section>
+
+        <section id="list" class="bg-[var(--glass-black-60)] h-[25em] py-8 px-4">
+            <h1 class="font-bold text-xl text-[var(--white-pure)] text-center">Daftar List</h1>
+            <div id="array-todos" class="bg-[var(--glass-white-8)] mt-4">
+                <ul id="hasil" class="flex flex-col gap-4 justify-center px-4 py-2">
+                    <p class="text-[var(--white-soft)]">haloo</p>
+                    <p class="text-[var(--white-soft)]">haloo</p>
+                    <p class="text-[var(--white-soft)]">haloo</p>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="text-center text-gray-400 text-sm"> © 2026 Reren. All Rights Reserved</p>
+    </footer>
+</body>
+</html>
