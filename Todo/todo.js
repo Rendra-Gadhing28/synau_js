@@ -3,7 +3,7 @@
 class Todolist{
 
     static semuaList= [];
-   onstructor(kegiatanId, tenggatId, kategoriId) {
+   constructor(kegiatanId, tenggatId, kategoriId) {
         // Simpan ID untuk referensi
         this.kegiatanId = kegiatanId;
         this.tenggatId = tenggatId;
@@ -83,16 +83,25 @@ class Todolist{
             "kategori" : this.kategori,
         }
         console.log(`Task berhasil dimuat ${list}`)
+        const mp = [list.id,
+            list.tanggalAsli,
+            list.kegiatan,
+            list.tenggat,
+            list.sisahari,
+            list.kategori
+        ]
+
+        console.table(mp)
         
         Todolist.semuaList.push(list)
         //kemudian render
-        this.render
+        this.render()
         console.log('list sudah masuk ke dalam array')
 
         this.clearInputFields()
     }
 
-    render(){
+     render(){
             const ul = document.getElementById('hasil')
             ul.innerHTML = ""
 
@@ -112,17 +121,17 @@ class Todolist{
                     ccolor = 'text-green-400'
                 }
 
-                create.className = `p-4 ${bgcolor} border rounded-lg shadow-sm  mb-3 list-none`
-                create.textContent = `
+                
+                create.innerHTML = `
                 <div class="flex justify-between items-start">
                     <div>
-                        <h3 class="font-semibold text-lg">${todo.kegiatan}</h3>
-                        <p class="text-sm text-gray-600 mt-1">📅 Tenggat: ${todo.tanggalAsli}</p>
-                        <p class="text-sm font-medium mt-1">${todo.tenggat}</p>
+                        <h3 class="font-semibold text-lg text-white">${e.kegiatan}</h3>
+                        <p class="text-sm text-gray-400 mt-1">📅 Tenggat: ${e.tanggalAsli}</p>
+                        <p class="text-sm font-medium mt-1 $">Tersisa : ${e.tenggat}</p>
                     </div>
                     <div>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">
-                            ${todo.kategori || 'Tanpa Kategori'}
+                        <span class="px-3 py-1 bg-white/80 text-black rounded-full text-xs">
+                            ${e.kategori || 'Tanpa Kategori'}
                         </span>
                     </div>
                 </div>`
@@ -141,8 +150,8 @@ const clearInput = document.getElementById('clear')
 const ul = document.getElementById('hasil')
 //membuat list baru aku masih bingung create element tu di dalam class atau di dalam addEventListner
 kirim.addEventListener('click',()=>{
-    const object = new Todolist('kegiatan', 'tenggat', 'kategori')
-    object.addList()
+    const todo = new Todolist('kegiatan', 'tenggat', 'kategori')
+    todo.addList()
 })
 
 clearInput.addEventListener('click', ()=>{
@@ -154,5 +163,5 @@ document.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         const todo = new Todolist('kegiatan', 'tenggat', 'kategori');
         todo.addList();
-    }
+    }   
 });
