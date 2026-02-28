@@ -49,8 +49,8 @@ class Todolist{
         Todolist.semuaList = []
         const ul = document.getElementById('hasil')
 
-        if(ul) ul.textContent = ''
-        console.log(ul.textContent, 'berhasil di clear')
+        if(ul) ul.innerHTML = ''
+        console.log(ul.innerHTML, 'berhasil di clear')
     }
 
     getSisaHari(){
